@@ -1,3 +1,5 @@
+import HeaderUI from './components/HeaderUI';
+import AlertUI from './components/AlertUI';
 import { Grid } from '@mui/material';
 import './App.css'
 
@@ -8,26 +10,28 @@ function App() {
     <Grid container spacing={5} justifyContent="center" alignItems="center">
 
       {/* Encabezado */}
-      <Grid size={{ xs: 12, md: 12 }}>Elemento: Encabezado</Grid>
+      <Grid size={{ xs: 12, md: 12 }}><HeaderUI /></Grid>
 
       {/* Alertas */}
-      <Grid>Elemento: Alertas</Grid>
+      <Grid container justifyContent="right" alignItems="center">
+        <AlertUI description="No se preveen lluvias" />
+      </Grid>
 
       {/* Selector */}
-      <Grid size={{ xs: 12, md: 3  }}>Elemento: Selector</Grid>
+      <Grid size={{ xs: 12, md: 3 }}>Elemento: Selector</Grid>
 
       {/* Indicadores */}
       <Grid size={{ xs: 12, md: 9 }}>Elemento: Indicadores</Grid>
 
       {/* Gráfico */}
-      <Grid sx={{ display: { xs: "none", md: "none"} }}>        
+      <Grid sx={{ display: { xs: "none", md: "none" } }}>
         Elemento: Gráfico
-        </Grid>
+      </Grid>
 
       {/* Tabla */}
       <Grid sx={{ display: { xs: "none", md: "block" } }}>
         Elemento: Tabla
-        </Grid>
+      </Grid>
 
       {/* Información adicional */}
       <Grid>Elemento: Información adicional</Grid>
