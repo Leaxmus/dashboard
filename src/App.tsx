@@ -9,8 +9,11 @@ import './App.css'
 function App() {
   //const [count, setCount] = useState(0)
 
-  const dataFetcherOutput = useFetchData();
-  if (!dataFetcherOutput) return <p>Cargando...</p>;
+  const { data, loading, error } = useFetchData();
+
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!data) return <p>Sin datos</p>;
 
   return (
     <Grid container spacing={5} justifyContent="center" alignItems="center">
@@ -30,37 +33,35 @@ function App() {
       <Grid container size={{ xs: 12, md: 9 }} >
 
         <Grid size={{ xs: 12, md: 3 }}>
-          {dataFetcherOutput &&
-            (<IndicatorUI
-              title='Temperatura (2m)'
-              description={`${dataFetcherOutput.current.temperature_2m} ${dataFetcherOutput.current_units.temperature_2m}`} />)
-          }
+          {/* IndicatorUI temperatura en 2m' */}
+          <IndicatorUI
+            title='Temperatura (2m)'
+            description={`${data.current.temperature_2m} ${data.current_units.temperature_2m}`}
+          />
         </Grid>
 
         <Grid size={{ xs: 12, md: 3 }}>
-          {dataFetcherOutput &&
-            (<IndicatorUI
-              title='Temperatura aparente (°C)'
-              description={`${dataFetcherOutput.current.apparent_temperature} ${dataFetcherOutput.current_units.apparent_temperature}`} />)
-          }
+          {/* IndicatorUI temperatura aparente °C' */}
+          <IndicatorUI
+            title='Temperatura aparente (°C)'
+            description={`${data.current.apparent_temperature} ${data.current_units.apparent_temperature}`}
+          />
         </Grid>
 
         <Grid size={{ xs: 12, md: 3 }}>
           {/* IndicatorUI con la Velocidad del viento en km/h' */}
-          {dataFetcherOutput &&
-            (<IndicatorUI
-              title='Velocidad del viento  (km/h)'
-              description={`${dataFetcherOutput.current.wind_speed_10m} ${dataFetcherOutput.current_units.wind_speed_10m}`} />)
-          }
+          <IndicatorUI
+            title='Velocidad del viento  (km/h)'
+            description={`${data.current.wind_speed_10m} ${data.current_units.wind_speed_10m}`}
+          />
         </Grid>
 
         <Grid size={{ xs: 12, md: 3 }}>
           {/* IndicatorUI con la Humedad relativa en %' */}
-          {dataFetcherOutput &&
-            (<IndicatorUI
-              title='Humedad relativa (%)'
-              description={`${dataFetcherOutput.current.relative_humidity_2m} ${dataFetcherOutput.current_units.relative_humidity_2m}`} />)
-          }
+          <IndicatorUI
+            title='Humedad relativa (%)'
+            description={`${data.current.relative_humidity_2m} ${data.current_units.relative_humidity_2m}`}
+          />
         </Grid>
 
       </Grid>
