@@ -3,7 +3,7 @@ import { type OpenMeteoResponse } from '../types/DashboardTypes';
 
 export default function useFetchData() {
     const URL =
-        'https://api.open-meteo.com/v1/forecast?latitude=-2.1962&longitude=-79.8862&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m';
+        'https://api.open-meteo.com/v1/forecast?latitude=-2.1962&longitude=-79.8862&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,apparent_temperature';
 
     const [data, setData] = useState<OpenMeteoResponse | null>(null);
     const [loading, setLoading] = useState<boolean>(true);

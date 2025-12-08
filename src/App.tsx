@@ -72,7 +72,6 @@ function App() {
 
       {/* Gráfico */}
       <Grid sx={{ display: { xs: "none", md: "block" } }}>
-        <ChartUI />
       </Grid>
 
       {/* Tabla */}

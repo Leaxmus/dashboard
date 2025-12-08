@@ -8,6 +8,8 @@ export interface OpenMeteoResponse {
   elevation: number
   current_units: CurrentUnits
   current: Current
+  hourly_units: HourlyUnits
+  hourly: Hourly
 }
 
 export interface CurrentUnits {
@@ -27,3 +29,18 @@ export interface Current {
   apparent_temperature: number
   wind_speed_10m: number
 }
+
+export interface HourlyUnits {
+  time: string
+  temperature_2m: string
+  relative_humidity_2m: string
+  apparent_temperature: string
+}
+
+export interface Hourly {
+  time: string[]
+  temperature_2m: number[]
+  relative_humidity_2m: number[]
+  apparent_temperature: number[]
+}
+
