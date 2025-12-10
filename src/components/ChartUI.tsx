@@ -19,6 +19,8 @@ export default function ChartUI({
     labels
 }: ChartUIProps) {
 
+    const formattedLabels = labels.map(l => l.substring(11, 16));
+
     return (
         <>
             <Typography variant="h5">{label}</Typography>
@@ -32,7 +34,7 @@ export default function ChartUI({
                 xAxis={[
                     {
                         scaleType: 'point',
-                        data: labels,
+                        data: formattedLabels,
                     },
                 ]}
             />
