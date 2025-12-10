@@ -72,6 +72,16 @@ function App() {
 
       {/* Gráfico */}
       <Grid sx={{ display: { xs: "none", md: "block" } }}>
+        <ChartUI
+          label="Tiempo vs Temperatura, Temperatura aparente"
+          labels={data.hourly.time.slice(0, 20)}
+          labelValues1="Temperatura (2m)"
+          values1={data.hourly.temperature_2m.slice(0, 20)}
+
+          labelValues2="Temperatura aparente (2m)"
+          values2={data.hourly.apparent_temperature.slice(0, 20)}
+        />
+
       </Grid>
 
       {/* Tabla */}

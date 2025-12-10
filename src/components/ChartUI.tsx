@@ -10,13 +10,18 @@ interface ChartUIProps {
     labels: string[];
 }
 
+export default function ChartUI({
+    label,
+    labelValues1,
+    labelValues2,
+    values1,
+    values2,
+    labels
+}: ChartUIProps) {
 
-export default function ChartUI({ label, labelValues1, labelValues2, values1, values2, labels }: ChartUIProps) {
     return (
         <>
-            <Typography variant="h5" component="div">
-                {label}
-            </Typography>
+            <Typography variant="h5">{label}</Typography>
 
             <LineChart
                 height={300}
@@ -34,4 +39,3 @@ export default function ChartUI({ label, labelValues1, labelValues2, values1, va
         </>
     );
 }
-
